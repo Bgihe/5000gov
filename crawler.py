@@ -7,7 +7,7 @@ import os
 
 def writeOilDict(writeDict):
     with open("/Users/steven/Desktop/公司/git/5000gov/winNumber.json", "w+") as output:
-        output.write(str(writeDict))
+        output.write(str(writeDict).replace("'","\""))
 
 def pushJson():
     dirfile = os.path.abspath('/Users/steven/Desktop/公司/git/5000gov') # code的文件位置，我默认将其存放在根目录下
@@ -31,10 +31,10 @@ script = soup.find("script", text=pattern1)
 allWinNoList = {'no1': {}, 'no2': {}, 'no3': {}, 'no4': {}}
 allWinNoJson = json.dumps(allWinNoList)
 
-search1 = "{" + pattern1.search(str(script)).group(1) + "}"
-search2 = "{" + pattern2.search(str(script)).group(1) + "}"
-search3 = "{" + pattern3.search(str(script)).group(1) + "}"
-search4 = "{" + pattern4.search(str(script)).group(1) + "}"
+# search1 = "{" + pattern1.search(str(script)).group(1) + "}"
+# search2 = "{" + pattern2.search(str(script)).group(1) + "}"
+# search3 = "{" + pattern3.search(str(script)).group(1) + "}"
+# search4 = "{" + pattern4.search(str(script)).group(1) + "}"
 
 res1 = json.loads("{" + pattern1.search(str(script)).group(1) + "}")
 res2 = json.loads("{" + pattern2.search(str(script)).group(1) + "}")
