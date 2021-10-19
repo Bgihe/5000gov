@@ -30,11 +30,13 @@ def pushJson():
     g.push()
     g.add("--all")
     g.commit("-m auto update")
-    g.push("https://" + configDict['username'] +":" + configDict['password'] +"@github.com/Bgihe/5000gov.git")
-    # git push https://<username>:<password>@github.com/<username>/<repository>.git --all
+    try:
+        g.push("https://" + configDict['username'] + ":" + configDict['password'] + "@github.com/Bgihe/5000gov.git")
+        print("Successful push!")
+    except:
+        print("Nothing to commit")
 
-    print("Successful push!")
-    print("Successful push!")
+
 
 def startLoop():
     response = requests.get("https://vhpi.5000.gov.tw/")
