@@ -4,10 +4,16 @@ import re
 import json
 from git import Repo
 import os
+import ast
 
 def writeOilDict(writeDict):
     with open("/Users/steven/Desktop/公司/git/5000gov/winNumber.json", "w+") as output:
         output.write(str(writeDict).replace("'","\""))
+
+def readWinRateDict():
+    with open("/Users/steven/Desktop/config.txt", "r") as data:
+        dictionary = ast.literal_eval(data.read())
+    return dictionary
 
 def pushJson():
     dirfile = os.path.abspath('/Users/steven/Desktop/公司/git/5000gov') # code的文件位置，我默认将其存放在根目录下
@@ -19,6 +25,13 @@ def pushJson():
     g.push()
     print("Successful push!")
     print("Successful push!")
+
+
+testDict = {}
+testDict = readWinRateDict()
+print(testDict)
+print(testDict['username'])
+print(testDict['password'])
 
 response = requests.get("https://vhpi.5000.gov.tw/")
 soup = BeautifulSoup(response.text, "html.parser")
