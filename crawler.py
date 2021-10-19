@@ -25,12 +25,12 @@ def pushJson():
     print(configDict['password'])
 
     dirfile = os.path.abspath('/Users/steven/Desktop/公司/git/5000gov') # code的文件位置，我默认将其存放在根目录下
-    repo = Repo(dirfile)
-    g = repo.git
-    g.push()
-    g.add("--all")
-    g.commit("-m auto update")
     try:
+        repo = Repo(dirfile)
+        g = repo.git
+        g.push()
+        g.add("--all")
+        g.commit("-m auto update")
         g.push("https://" + configDict['username'] + ":" + configDict['password'] + "@github.com/Bgihe/5000gov.git")
         print("Successful push!")
     except:
