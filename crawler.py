@@ -50,10 +50,10 @@ def startLoop():
     allWinNoList = {'no1': {}, 'no2': {}, 'no3': {}, 'no4': {}}
     allWinNoJson = json.dumps(allWinNoList)
 
-    res1 = json.loads("{" + pattern1.search(str(script)).group(1) + "}")
-    res2 = json.loads("{" + pattern2.search(str(script)).group(1) + "}")
-    res3 = json.loads("{" + pattern3.search(str(script)).group(1) + "}")
-    res4 = json.loads("{" + pattern4.search(str(script)).group(1) + "}")
+    res1 = json.loads("{" + pattern1.search(str(script).replace(";","")).group(1) + "}")
+    res2 = json.loads("{" + pattern2.search(str(script).replace(";","")).group(1) + "}")
+    res3 = json.loads("{" + pattern3.search(str(script).replace(";","")).group(1) + "}")
+    res4 = json.loads("{" + pattern4.search(str(script).replace(";","")).group(1) + "}")
 
     allWinNoList['no1'] = res1
     allWinNoList['no2'] = res2
